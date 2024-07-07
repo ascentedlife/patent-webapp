@@ -1,6 +1,6 @@
 # Comparing Product-Process Innovation Share Across Technologies
 
-This project is a web application that classifies patent claims into either product or process innovations and provides tools for exploring and visualizing a large dataset of classified patent claims. The app is built with Streamlit, uses a pre-trained model for classification, and includes various interactive features for data exploration.
+This project is a web application that classifies patent claims into either product or process innovations and provides tools for exploring and visualizing a large dataset of classified patent claims. The app is built with Streamlit, uses a pre-trained large language model for classification, and includes various interactive features for data exploration.
 
 This project is part of the course **Data Science for Public Policy** at ETH Zurich, Spring 2024.
 
@@ -16,8 +16,8 @@ Follow the steps below to get started:
 ### Steps
 1. Clone the Repository from your terminal:
 ```sh
-git clone https://github.com/yourusername/patent-claim-classification.git
-cd patent-claim-classification
+git clone https://github.com/ascentedlife/patent-webapp.git
+cd patent-webapp
 ```
 1. Install Poetry (if not already installed). You can find the installation instructions [here](https://python-poetry.org/docs/#installation) or install it via pip with the following command
 ```sh
