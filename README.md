@@ -19,7 +19,7 @@ Follow the steps below to get started:
 git clone https://github.com/ascentedlife/patent-webapp.git
 cd patent-webapp
 ```
-1. Install Poetry (if not already installed). You can find the installation instructions [here](https://python-poetry.org/docs/#installation) or install it via pip with the following command
+2. Install Poetry (if not already installed). You can find the installation instructions [here](https://python-poetry.org/docs/#installation) or install it via pip with the following command
 ```sh
 pip install poetry
 ```
@@ -41,7 +41,7 @@ To run the web application, execute the following command within the project's d
 poetry run streamlit run src/app.py
 ```
 
-This will start the Streamlit server, and should automatically open the web application in your web browser (if not, please refer to the local URL provided in the terminal).
+This will start the Streamlit server and should automatically open the web application in your web browser (if not, please refer to the local URL provided in the terminal).
 
 
 ## Project Structure
