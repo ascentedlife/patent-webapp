@@ -123,7 +123,7 @@ def main():
             ## :blue[Overview]
             #### :green[What is the purpose of the project?]
 
-            Understanding the ratio between product and process innovations can help companies, policymakers, and research institutions allocate resources more effectively, targeting areas with high innovation activity or potential for growth. This project provides a powerful tool for extracting meaningful insights from patent data, which can drive innovation, strategic planning, and informed decision-making in various fields.
+            Patents are key representations of technological innovations. Identifying patent claims to be either an innovation in product or process is a key step in technology policy research. This project aims to automate this classification process using a large language model (LLM). After assessing LLM options, the optimal trained LLM was used to classify a large dataset of patent claims. This webapp presents the results.
 
             #### :green[What is product and process innovation?]
             - **Product Innovation**: The development of new or improved products or services that differ significantly from existing products or services.
@@ -133,7 +133,7 @@ def main():
     with feature_col:
         st.markdown("""
             ## :blue[Features]
-            - **Patent Claim Classifier**: Classify a patent claim using a pre-trained large language model.
+            - **Patent Claim Classifier**: Try out the LLM yourself! Classify a patent claim using a pre-trained large language model.
             - **Word Cloud**: Identify trends and focus areas within the patent data. This can reveal which topics or concepts are most prevalent in different technology categories.
             - **Analysis of Innovation Types**: Calculate and visuale the ratio between product and process innovations across different technology categories.
             - **Data Exploration and Visualization**: Explore the dataset used in this project, which includes various columns such as publication number, title, claim type, claim text, technology category, patent source, and classification labels.
