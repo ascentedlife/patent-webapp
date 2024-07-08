@@ -46,8 +46,10 @@ This will start the Streamlit server and should automatically open the web appli
 
 ## Project Structure
 - [app.py](./src/app.py): The main application script.
-- [src/](./src/): Directory containing the application code.
+- [src/](./src/): Directory containing the web-application code.
 - [data/](./data/): Directory to store the dataset CSV file.
 - [images/](./images/): Directory to store the word cloud mask image.
 - [models/](./models/): Directory to store the pre-trained model files.
 - [README.md](./README.md): Project documentation.
+- [code/experiment/](./code/experiment/): Directory containing code used to assess NLP models via hyperparameter optimisation
+- [code/inference/](./code/inference/): Directory containing code used to perform inference using trained NLP model
