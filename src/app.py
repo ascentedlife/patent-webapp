@@ -146,7 +146,7 @@ def main():
     with st.container(border=True):
         st.header(":briefcase: :rainbow[Patent Claim Classifier]")
         st.markdown(
-            "The model classifies patent claims into either a product or process innovation."
+            "The model classifies patent claims to be either a product or process innovation."
         )
         patent_claim = st.text_area(
             "Enter your patent claim here:",
