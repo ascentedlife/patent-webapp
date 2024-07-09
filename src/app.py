@@ -1,15 +1,18 @@
+import os
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
 import streamlit as st
 from PIL import Image
-from wordcloud import WordCloud
+import wordcloud
 
 import model
 
-label_map = {1: "Product Innovation", 0: "Process Innovation"}
-tech_map = {
+FILE = os.path.dirname(__file__)
+LABEL_MAP = {1: "Product Innovation", 0: "Process Innovation"}
+TECH_MAP = {
     "SPV": "Solar Photovoltaic",
     "SC": "Supercapacitors",
     "LIB": "Lithium-Ion Batteries",
@@ -17,18 +20,22 @@ tech_map = {
     "FW": "Flywheels",
     "Wind": "Wind",
 }
-fixed_colors = {
+FIXED_COLORS = {
     tech: px.colors.qualitative.Plotly[i]
-    for i, tech in enumerate(sorted(tech_map.values()))
+    for i, tech in enumerate(sorted(TECH_MAP.values()))
 }
+STOPWORDS = wordcloud.STOPWORDS
+
+with open(os.path.join(FILE, "stopwords"), encoding="utf8") as f:
+    STOPWORDS.update(f.read().splitlines())
 
 
 @st.cache_data
 def load_data(file_path):
     """Load and cache the dataset."""
     claims_data = pd.read_csv(file_path)
-    claims_data["Labels"] = claims_data["Labels"].map(label_map)
-    claims_data["Tech"] = claims_data["Tech"].map(tech_map)
+    claims_data["Labels"] = claims_data["Labels"].map(LABEL_MAP)
+    claims_data["Tech"] = claims_data["Tech"].map(TECH_MAP)
     return claims_data
 
 
@@ -50,7 +57,7 @@ def sample_data(data, n=10):
 @st.cache_data
 def generate_wordcloud(text, mask, max_words=200):
     """Generate a word cloud from the given text and mask."""
-    wordcloud = WordCloud(
+    wcloud = wordcloud.WordCloud(
         width=1200,
         height=600,
         mask=mask,
@@ -58,8 +65,9 @@ def generate_wordcloud(text, mask, max_words=200):
         background_color="white",
         contour_color="black",
         contour_width=0,
+        stopwords=STOPWORDS,
     ).generate(text)
-    return wordcloud
+    return wcloud
 
 
 @st.cache_data
@@ -85,7 +93,7 @@ def plot_bar_chart(df):
         labels={"Product/Process Ratio": "Product/Process Ratio", "Tech": "Technology"},
         hover_data={"Product/Process Ratio": ":.2%"},
         color="Tech",
-        color_discrete_map=fixed_colors,
+        color_discrete_map=FIXED_COLORS,
     )
     fig.update_layout(xaxis=dict(showgrid=True, gridcolor="LightGrey"))
     return fig
@@ -158,7 +166,7 @@ def main():
                 prediction, certainty = xlnet.predict(patent_claim)
                 st.success(
                     f"""
-                    **Prediction**: {label_map[prediction]}\n
+                    **Prediction**: {LABEL_MAP[prediction]}\n
                     **Certainty**: {certainty*100:.2f}%
                     """
                 )
