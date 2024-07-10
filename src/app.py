@@ -131,7 +131,7 @@ def main():
             ## :blue[Overview]
             #### :green[What is the purpose of the project?]
 
-            Patents are key representations of technological innovations. Identifying patent claims to be either an innovation in product or process is a key step in technology policy research. This project aims to automate this classification process using a large language model (LLM). After assessing LLM options, the optimal trained LLM was used to classify a large dataset of patent claims. This webapp presents the results.
+            Patents are key representations of technological innovations. Identifying patent claims to be either an innovation in product or process is a key step in technology policy research, enabling smarter policymaking. This project aims to automate this classification process using a large language model (LLM). After assessing LLM options, the optimal trained LLM was used to classify a large dataset of patent claims. This webapp presents the results.
 
             #### :green[What is product and process innovation?]
             - **Product Innovation**: The development of new or improved products or services that differ significantly from existing products or services.
